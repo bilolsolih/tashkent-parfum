@@ -50,7 +50,17 @@ class UserAdmin(admin.ModelAdmin):
         (_("Important dates"), {"fields": ("last_login", "date_joined", "updated")}),
     )
     add_fieldsets = (
-        (None, {"classes": ("wide",), "fields": ("phone_number", "password1", "password2",), },),
+        (
+            None,
+            {
+                "classes": ("wide",),
+                "fields": (
+                    "phone_number",
+                    "password1",
+                    "password2",
+                ),
+            },
+        ),
     )
     form = UserChangeForm
     add_form = UserCreationForm
@@ -208,5 +218,6 @@ class UserAdmin(admin.ModelAdmin):
             request.POST = request.POST.copy()
             request.POST["_continue"] = 1
         return super().response_add(request, obj, post_url_continue)
+
 
 # Register your models here.

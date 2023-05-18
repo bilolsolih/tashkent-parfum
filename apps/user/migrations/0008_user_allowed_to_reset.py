@@ -12,8 +12,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="user",
             name="allowed_to_reset",
-            field=models.BooleanField(
-                default=False, verbose_name="Is user allowed to reset password?"
-            ),
+            field=models.BooleanField(default=False, verbose_name="Is user allowed to reset password?"),
         ),
     ]

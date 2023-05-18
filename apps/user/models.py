@@ -10,8 +10,8 @@ from .managers import UserManager
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    phone_number = models.CharField(verbose_name=_('Phone number'), max_length=15, unique=True)
-    full_name = models.CharField(verbose_name=_('Fullname'), max_length=128)
+    phone_number = models.CharField(verbose_name=_("Phone number"), max_length=15, unique=True)
+    full_name = models.CharField(verbose_name=_("Fullname"), max_length=128)
 
     email = models.EmailField(verbose_name=_("Email address"), blank=True, null=True)
     is_staff = models.BooleanField(
@@ -22,14 +22,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(
         verbose_name=_("Is active?"),
         default=False,
-        help_text=_(
-            "Designates whether this user should be treated as active."
-            "Unselect this instead of deleting accounts."
-        ),
+        help_text=_("Designates whether this user should be treated as active." "Unselect this instead of deleting accounts."),
     )
-    is_verified = models.BooleanField(verbose_name=_('Is user phone number verified?'), default=False)
-    is_deleted = models.BooleanField(verbose_name=_('Is user deleted?'), default=False)
-    allowed_to_reset = models.BooleanField(verbose_name=_('Is user allowed to reset password?'), default=False)
+    is_verified = models.BooleanField(verbose_name=_("Is user phone number verified?"), default=False)
+    is_deleted = models.BooleanField(verbose_name=_("Is user deleted?"), default=False)
+    allowed_to_reset = models.BooleanField(verbose_name=_("Is user allowed to reset password?"), default=False)
     date_joined = models.DateTimeField(verbose_name=_("Date joined"), default=timezone.now)
     updated = models.DateTimeField(auto_now=True)
 
