@@ -12,12 +12,12 @@ class VerificationCode(BaseModel):
     code = models.CharField(max_length=6)
     expiration_time = models.DateTimeField()
     device_id = models.CharField(max_length=50)
-    type = models.CharField(choices=CodeTypes.choices, max_length=3, default="ver")
+    code_type = models.CharField(choices=CodeTypes.choices, max_length=3, default="ver")
 
     class Meta:
         verbose_name = "Verification code"
         verbose_name_plural = "Verification codes"
-        unique_together = ["phone_number", "code", "type", "device_id"]
+        unique_together = ["phone_number", "code", "code_type", "device_id"]
 
     def __str__(self):
         return f"Verification code for {self.phone_number}, device {self.device_id}"

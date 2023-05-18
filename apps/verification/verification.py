@@ -15,7 +15,7 @@ def send_code(serializer, code_type):
     expiration_time = timezone.now() + timedelta(minutes=2)
 
     VerificationCode.objects.create(
-        phone_number=phone_number, device_id=device_id, code=code, expiration_time=expiration_time, type=code_type
+        phone_number=phone_number, device_id=device_id, code=code, expiration_time=expiration_time, code_type=code_type
     )
 
     # client = Client(os.getenv("TWILIO_ACCOUNT_SID"), os.getenv("TWILIO_AUTH_TOKEN"))

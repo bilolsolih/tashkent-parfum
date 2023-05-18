@@ -42,6 +42,7 @@ class UserAdmin(admin.ModelAdmin):
                     "is_deleted",
                     "is_staff",
                     "is_superuser",
+                    "allowed_to_reset",
                     "groups",
                     "user_permissions",
                 ),
@@ -65,7 +66,7 @@ class UserAdmin(admin.ModelAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
     change_password_form = AdminPasswordChangeForm
-    list_display = ("full_name", "phone_number", "is_staff")
+    list_display = ("phone_number", "full_name", "is_staff")
     list_filter = ("is_staff", "is_superuser", "is_active", "groups")
     search_fields = ("phone_number", "full_name")
     readonly_fields = ("updated",)
@@ -218,6 +219,5 @@ class UserAdmin(admin.ModelAdmin):
             request.POST = request.POST.copy()
             request.POST["_continue"] = 1
         return super().response_add(request, obj, post_url_continue)
-
 
 # Register your models here.
