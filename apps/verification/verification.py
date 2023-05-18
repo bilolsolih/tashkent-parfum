@@ -1,9 +1,9 @@
-import os
+import os  # noqa
 import random
 from datetime import timedelta
 
 from django.utils import timezone
-from twilio.rest import Client
+from twilio.rest import Client  # noqa
 
 from apps.verification.models import VerificationCode
 
@@ -18,7 +18,7 @@ def send_code(serializer, code_type):
         phone_number=phone_number, device_id=device_id, code=code, expiration_time=expiration_time, type=code_type
     )
 
-    client = Client(os.getenv("TWILIO_ACCOUNT_SID"), os.getenv("TWILIO_AUTH_TOKEN"))
+    # client = Client(os.getenv("TWILIO_ACCOUNT_SID"), os.getenv("TWILIO_AUTH_TOKEN"))
     print(code)
 
     # message = client.messages.create(
